@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BLACK SOLE — Sneakers</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px 7%;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.9)),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: #aaa;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: #aaa;
+    }
+
+    .hero {
+      max-width: 750px;
+      padding-bottom: 80px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #fff;
+      padding: 8px 15px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 120px);
+      line-height: .85;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -7px;
+    }
+
+    .hero p {
+      margin-top: 30px;
+      color: #ccc;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      background: #fff;
+      color: #000;
+      padding: 16px 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #ccc;
+      transform: translateY(-3px);
+    }
+
+    /* PRODUTOS */
+
+    .products-section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 45px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 20px;
+    }
+
+    .section-title h2 {
+      font-size: 50px;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+    }
+
+    .section-title span {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: #101010;
+      border: 1px solid #222;
+      position: relative;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      border-color: #555;
+    }
+
+    .product-image {
+      height: 330px;
+      background: #eaeaea;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .product:hover img {
+      transform: scale(1.07);
+    }
+
+    .discount {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h3 {
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .old-price {
+      color: #777;
+      text-decoration: line-through;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: 900;
+      margin-top: 5px;
+    }
+
+    .buy-button {
+      display: block;
+      margin-top: 20px;
+      background: #fff;
+      color: #000;
+      padding: 14px;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .buy-button:hover {
+      background: #ccc;
+    }
+
+    /* INSTAGRAM */
+
+    .social-section {
+      padding: 80px 7%;
+      background: #fff;
+      color: #000;
+      text-align: center;
+    }
+
+    .social-section h2 {
+      font-size: 50px;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+    }
+
+    .social-section p {
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .social-button {
+      background: #000;
+      color: #fff;
+      padding: 17px 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .social-button:hover {
+      background: #333;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 7%;
+      border-top: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(0,0,0,.4);
+      z-index: 999;
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        letter-spacing: -4px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        min-height: 80vh;
+      }
+
+      .products-section {
+        padding: 70px 5%;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title h2 {
+        font-size: 40px;
+      }
+
+      .product-image {
+        height: 300px;
+      }
+
+      .social-section h2 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       MENU
+  ========================== -->
+
+  <header>
+
+    <nav>
+
+      <!-- TROQUE PELO NOME DA SUA LOJA -->
+      <div class="logo">
+        BLACK<span>SOLE</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#produtos">Tênis</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+    </nav>
+
+    <div class="hero">
+
+      <span class="tag">Streetwear / Sneakers</span>
+
+      <h1>
+        Seu estilo.<br>
+        Seu tênis.
+      </h1>
+
+      <p>
+        Sneakers selecionados para quem não segue tendência.
+        Crie seu próprio estilo.
+      </p>
+
+      <a href="#produtos" class="button">
+        Ver coleção
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       PRODUTOS
+  ========================== -->
+
+  <section class="products-section" id="produtos">
+
+    <div class="section-title">
+
+      <h2>Drop atual</h2>
+
+      <span>
+        PREÇOS ESPECIAIS
+      </span>
+
+    </div>
+
+
+    <div class="products">
+
+
+      <!-- PRODUTO 1 -->
+
+      <div class="product">
+
+        <div class="product-image">
+
+          <!-- TROQUE ESTA URL PELA FOTO DO SEU TÊNIS -->
+
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+            alt="Tênis Street Black"
+          >
+
+          <div class="discount">-55%</div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Street Black</h3>
+
+          <div class="old-price">
+            R$ 899,00
+          </div>
+
+          <div class="price">
+            R$ 404,55
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20Street%20Black."
+            target="_blank"
+          >
+            Comprar pelo WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUTO 2 -->
+
+      <div class="product">
+
+        <div class="product-image">
+
+          <!-- COLOQUE A FOTO DO SEGUNDO TÊNIS AQUI -->
+
+          <img
+            src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80"
+            alt="Tênis White Essential"
+          >
+
+          <div class="discount">-55%</div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>White Essential</h3>
+
+          <div class="old-price">
+            R$ 978,00
+          </div>
+
+          <div class="price">
+            R$ 440,10
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20White%20Essential."
+            target="_blank"
+          >
+            Comprar pelo WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUTO 3 -->
+
+      <div class="product">
+
+        <div class="product-image">
+
+          <!-- COLOQUE A FOTO DO TERCEIRO TÊNIS AQUI -->
+
+          <img
+            src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80"
+            alt="Tênis Urban"
+          >
+
+          <div class="discount">-55%</div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Urban Force</h3>
+
+          <div class="old-price">
+            R$ 899,00
+          </div>
+
+          <div class="price">
+            R$ 404,55
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20Urban%20Force."
+            target="_blank"
+          >
+            Comprar pelo WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUTO 4 -->
+
+      <div class="product">
+
+        <div class="product-image">
+
+          <!-- COLOQUE A FOTO DO QUARTO TÊNIS AQUI -->
+
+          <img
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=80"
+            alt="Tênis Black Premium"
+          >
+
+          <div class="discount">-53%</div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Black Premium</h3>
+
+          <div class="old-price">
+            R$ 978,00
+          </div>
+
+          <div class="price">
+            R$ 459,66
+          </div>
+
+          <a
+            class="buy-button"
+            href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20no%20Black%20Premium."
+            target="_blank"
+          >
+            Comprar pelo WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       INSTAGRAM
+  ========================== -->
+
+  <section class="social-section" id="instagram">
+
+    <h2>Follow the movement.</h2>
+
+    <p>
+      Acompanhe os drops e novidades.
+    </p>
+
+    <div class="social-buttons">
+
+      <!-- TROQUE PELOS SEUS INSTAGRAMS -->
+
+      <a
+        href="https://instagram.com/seuinstagram"
+        target="_blank"
+        class="social-button"
+      >
+        Meu Instagram
+      </a>
+
+      <a
+        href="https://instagram.com/instagramdaloja"
+        target="_blank"
+        class="social-button"
+      >
+        Instagram da Loja
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer id="contato">
+
+    <div>
+      <div class="logo">
+        BLACK<span>SOLE</span>
+      </div>
+
+      <p>
+        Streetwear & Sneakers
+      </p>
+    </div>
+
+    <p>
+      © 2026 Black Sole. Todos os direitos reservados.
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       WHATSAPP
+  ========================== -->
+
+  <!--
+    TROQUE 5500000000000 PELO SEU NÚMERO.
+
+    Exemplo:
+    Brasil +55
+    DDD 49
+    Número 99999-9999
+
+    Ficaria:
+    5549999999999
+  -->
+
+  <a
+    href="https://wa.me/5500000000000?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20tênis."
+    target="_blank"
+    class="whatsapp"
+    aria-label="WhatsApp"
+  >
+    W
+  </a>
+
+
+</body>
+</html>
